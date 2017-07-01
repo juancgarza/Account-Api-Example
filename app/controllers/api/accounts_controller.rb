@@ -1,4 +1,5 @@
-class AccountsController < BaseController
+class Api::AccountsController < Api::BaseController
+  before_action :account_params , only: [:create]
   def show
     accounts = Account.find(params[:id])
     if accounts
@@ -9,21 +10,20 @@ class AccountsController < BaseController
   end
 
   def create
-    def create
-      account = Account.new(account_params)
-      if account.save
-        render json: activity_log , status: 201
-      else
-        render json: { activity_log: { errors: activity_log.errors } } , status: 422
-      end
+    account = Account.new(account_params)
+    if account.save
+      render json: account , status: 201
+    else
+      render json: { account: { errors: account.errors } } , status: 422
     end
   end
 
 
+
 private
 
-def account_params
-    params.permit.require(:balance)
-end
+  def account_params
+    params.permit(:balance)
+  end
 
 end

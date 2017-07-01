@@ -1,7 +1,5 @@
-class Account < ApplicationRecord
+class Account < ActiveRecord::Base
   validates :balance , presence: true
-  has_many :transactions
-
-
-
+  validates :balance, numericality: { greater_than_or_equal_to: 0 }
+      
 end
