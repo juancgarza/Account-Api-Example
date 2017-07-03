@@ -1,9 +1,11 @@
 class Api::AccountsController < Api::BaseController
   before_action :account_params , only: [:create]
   def show
-    accounts = Account.find(params[:id])
-    if accounts
-      render json: accounts , status: 200
+    account = Account.find(params[:id])
+    search_params = {account_id: account.id}
+    transaction = Transaction.where(search_params)
+    if account
+      render json: { account: account , transactions: transaction }, status: 200
     else
       render json: {account_id: params[:id], message: "Not found."} , status: 404
     end

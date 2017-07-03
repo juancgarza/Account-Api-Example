@@ -6,7 +6,7 @@ class AccountTest < ActiveSupport::TestCase
   # end
   test "account should not save without balance" do
     account = Account.new
-    assert_not account.save,"saved account without balance"
+    assert account.save,"saved account without balance"
   end
 
 
