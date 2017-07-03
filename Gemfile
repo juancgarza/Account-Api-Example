@@ -28,11 +28,24 @@ gem'active_model_serializers'
 
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 # gem 'rack-cors'
-
+group :development, :test do
+  gem "rspec-core", :github => "rspec/rspec-core"
+  gem "rspec-expectations", :github => "rspec/rspec-expectations"
+  gem "rspec-mocks", :github => "rspec/rspec-mocks"
+  gem "rspec-support", :github => "rspec/rspec-support"
+  gem "rspec-rails", :github => "rspec/rspec-rails"
+end
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
 end
+
+group :test do
+  gem "factory_girl_rails"
+  gem 'ffaker'
+  gem "shoulda-matchers"
+end
+
 
 group :development do
   gem 'listen', '~> 3.0.5'

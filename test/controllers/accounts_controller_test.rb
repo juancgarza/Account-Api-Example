@@ -1,9 +1,12 @@
 require 'test_helper'
 
-class AccountsControllerTest < ActionDispatch::IntegrationTest
+class Api::AccountsControllerTest < ActionDispatch::IntegrationTest
 
+  setup do
+    @account = accounts(:one)
+  end
   test "should show account" do
-    account = Account.new(balance: 0 ,id: 1)
+    @account
     get api_account_url , params: {id: 1 }
     assert_response :success
   end
