@@ -1,4 +1,4 @@
-class Api::TransactionsController < Api::BaseController
+class TransactionsController < ApplicationController
   before_action :transaction_params
   def deposit
     transaction = Transaction.new(transaction_params)

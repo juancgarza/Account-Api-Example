@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Api::AccountsController, type: :controller do
+RSpec.describe AccountsController, type: :controller do
 
   describe 'get#SHOW' do
     before do

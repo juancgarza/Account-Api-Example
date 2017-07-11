@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Api::TransactionsController, type: :controller do
+RSpec.describe TransactionsController, type: :controller do
 =begin Tests don't work
 
   describe 'get #DEPOSIT' do

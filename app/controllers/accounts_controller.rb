@@ -1,4 +1,4 @@
-class Api::AccountsController < Api::BaseController
+class AccountsController < ApplicationController
   before_action :account_params , only: [:create]
   def show
     account = Account.find(params[:id])

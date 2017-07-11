@@ -10,17 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170701004822) do
+ActiveRecord::Schema.define(version: 20170710013049) do
 
   create_table "accounts", force: :cascade do |t|
-    t.decimal  "balance",    default: "0.0"
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.integer  "balance",    default: 0
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   create_table "transactions", force: :cascade do |t|
     t.integer  "account_id"
-    t.decimal  "amount"
+    t.integer  "amount"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["account_id"], name: "index_transactions_on_account_id"
